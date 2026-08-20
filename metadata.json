@@ -1,0 +1,6 @@
+{
+  "name": "FIRST Robotics Brasil - Guia e Categorias",
+  "description": "Guia oficial, direto e estruturado inspirado no FIRST Inspires, cobrindo os programas FLL, FTC, FRC, valores fundamentais, bolsas e início de equipes no Brasil.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
