@@ -46,35 +46,35 @@ export const Philosophy: React.FC = () => {
   ];
 
   return (
-    <section id="sobre" className="py-16 sm:py-24 border-b border-slate-200 bg-white">
+    <section id="sobre" className="py-16 sm:py-24 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 transition-colors">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="max-w-3xl mb-12">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-none bg-slate-100 border border-slate-200 text-slate-700 text-xs font-bold uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-none bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs font-bold uppercase tracking-wider mb-3">
             <span>Nossa Missão & Filosofia</span>
           </div>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-display">
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight font-display">
             A Cultura Que Define a FIRST®
           </h2>
-          <p className="text-slate-600 text-base sm:text-lg mt-3 leading-relaxed">
-            Fundada em 1989 pelo inventor <strong>Dean Kamen</strong> e pelo professor emérito do MIT <strong>Dr. Woodie Flowers</strong>, a FIRST construiu um movimento global que valoriza a integridade e o respeito tanto quanto a excelência técnica.
+          <p className="text-slate-600 dark:text-slate-300 text-base sm:text-lg mt-3 leading-relaxed">
+            Fundada em 1989 pelo inventor <strong className="text-slate-900 dark:text-white">Dean Kamen</strong> e pelo professor emérito do MIT <strong className="text-slate-900 dark:text-white">Dr. Woodie Flowers</strong>, a FIRST construiu um movimento global que valoriza a integridade e o respeito tanto quanto a excelência técnica.
           </p>
         </div>
 
         {/* Citação do Dr. Woodie Flowers */}
-        <div className="relative rounded-none bg-slate-50 border border-slate-200 text-slate-900 p-6 sm:p-8 mb-12 shadow-xs">
+        <div className="relative rounded-none bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 p-6 sm:p-8 mb-12 shadow-xs">
           <div className="relative z-10 max-w-3xl">
-            <Quote className="w-8 h-8 text-slate-400 mb-3" />
-            <p className="text-base sm:text-xl text-slate-800 italic font-medium leading-relaxed mb-4">
+            <Quote className="w-8 h-8 text-slate-400 dark:text-slate-500 mb-3" />
+            <p className="text-base sm:text-xl text-slate-800 dark:text-slate-200 italic font-medium leading-relaxed mb-4">
               "Nós não usamos os jovens para construir robôs; nós usamos os robôs para construir jovens melhores para o futuro."
             </p>
-            <div className="flex items-center gap-3 pt-2 border-t border-slate-200">
-              <div className="w-9 h-9 rounded-none bg-slate-900 text-white flex items-center justify-center font-bold text-xs">
+            <div className="flex items-center gap-3 pt-2 border-t border-slate-200 dark:border-slate-700">
+              <div className="w-9 h-9 rounded-none bg-slate-900 dark:bg-white text-white dark:text-slate-900 flex items-center justify-center font-bold text-xs">
                 WF
               </div>
               <div>
-                <div className="font-bold text-sm text-slate-900">Dr. Woodie Flowers (1943–2019)</div>
-                <div className="text-xs text-slate-500">Co-fundador da FIRST & Professor Emérito do MIT</div>
+                <div className="font-bold text-sm text-slate-900 dark:text-white">Dr. Woodie Flowers (1943–2019)</div>
+                <div className="text-xs text-slate-500 dark:text-slate-400">Co-fundador da FIRST & Professor Emérito do MIT</div>
               </div>
             </div>
           </div>
@@ -83,43 +83,43 @@ export const Philosophy: React.FC = () => {
         {/* 2 Pilares Culturais: Gracious Professionalism & Coopertition */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14">
           {/* Gracious Professionalism */}
-          <div className="rounded-none border border-slate-200 bg-white p-6 sm:p-8 shadow-xs flex flex-col justify-between hover:border-slate-300 transition-all">
+          <div className="rounded-none border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/80 p-6 sm:p-8 shadow-xs flex flex-col justify-between hover:border-slate-300 dark:hover:border-slate-600 transition-all">
             <div>
-              <div className="w-11 h-11 rounded-none bg-slate-100 text-slate-900 flex items-center justify-center mb-4 border border-slate-200">
+              <div className="w-11 h-11 rounded-none bg-slate-100 dark:bg-slate-700 text-slate-900 dark:text-slate-100 flex items-center justify-center mb-4 border border-slate-200 dark:border-slate-600">
                 <ShieldCheck className="w-5 h-5" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-1 font-display">
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1 font-display">
                 Gracious Professionalism®
               </h3>
-              <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">
+              <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-3">
                 Profissionalismo Gracioso
               </div>
-              <p className="text-slate-600 text-sm leading-relaxed mb-4">
+              <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">
                 Criado pelo Dr. Woodie Flowers, é a ideia de que o trabalho de alta qualidade e o respeito às pessoas não são mutuamente exclusivos. Incentiva a busca pela vitória com integridade, empatia e cordialidade.
               </p>
             </div>
-            <div className="text-xs text-slate-500 border-t border-slate-100 pt-3">
+            <div className="text-xs text-slate-500 dark:text-slate-400 border-t border-slate-100 dark:border-slate-700 pt-3">
               Competir com paixão sem nunca diminuir o próximo.
             </div>
           </div>
 
           {/* Coopertition */}
-          <div className="rounded-none border border-slate-200 bg-white p-6 sm:p-8 shadow-xs flex flex-col justify-between hover:border-slate-300 transition-all">
+          <div className="rounded-none border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/80 p-6 sm:p-8 shadow-xs flex flex-col justify-between hover:border-slate-300 dark:hover:border-slate-600 transition-all">
             <div>
-              <div className="w-11 h-11 rounded-none bg-slate-100 text-slate-900 flex items-center justify-center mb-4 border border-slate-200">
+              <div className="w-11 h-11 rounded-none bg-slate-100 dark:bg-slate-700 text-slate-900 dark:text-slate-100 flex items-center justify-center mb-4 border border-slate-200 dark:border-slate-600">
                 <HeartHandshake className="w-5 h-5" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-1 font-display">
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1 font-display">
                 Coopertition®
               </h3>
-              <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">
+              <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-3">
                 Cooperadição (Cooperar + Competir)
               </div>
-              <p className="text-slate-600 text-sm leading-relaxed mb-4">
+              <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">
                 Significa cooperar mesmo durante a competição. As equipes compartilham peças, ensinam código e ajudam adversários a consertar robôs nos boxes, garantindo que todos joguem no seu nível mais alto.
               </p>
             </div>
-            <div className="text-xs text-slate-500 border-t border-slate-100 pt-3">
+            <div className="text-xs text-slate-500 dark:text-slate-400 border-t border-slate-100 dark:border-slate-700 pt-3">
               Ajudar os adversários torna a vitória de todos mais significativa.
             </div>
           </div>
@@ -128,10 +128,10 @@ export const Philosophy: React.FC = () => {
         {/* 6 Valores Fundamentais */}
         <div>
           <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-1">
-            <h3 className="text-xl font-bold text-slate-900 font-display">
+            <h3 className="text-xl font-bold text-slate-900 dark:text-white font-display">
               FIRST® Core Values (Valores Fundamentais)
             </h3>
-            <span className="text-xs font-semibold text-slate-500">
+            <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">
               Avaliados oficialmente pelos jurados em todos os programas
             </span>
           </div>
@@ -142,14 +142,14 @@ export const Philosophy: React.FC = () => {
               return (
                 <div 
                   key={idx}
-                  className="p-5 rounded-none border border-slate-200 bg-white hover:border-slate-300 hover:shadow-xs transition-all flex items-start gap-4"
+                  className="p-5 rounded-none border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/80 hover:border-slate-300 dark:hover:border-slate-600 hover:shadow-xs transition-all flex items-start gap-4"
                 >
-                  <div className="w-10 h-10 rounded-none flex items-center justify-center flex-shrink-0 border border-slate-200 bg-slate-50 text-slate-800">
+                  <div className="w-10 h-10 rounded-none flex items-center justify-center flex-shrink-0 border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-700 text-slate-800 dark:text-slate-200">
                     <IconComponent className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-slate-900 text-base mb-1">{val.title}</h4>
-                    <p className="text-xs text-slate-600 leading-relaxed">{val.desc}</p>
+                    <h4 className="font-bold text-slate-900 dark:text-white text-base mb-1">{val.title}</h4>
+                    <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">{val.desc}</p>
                   </div>
                 </div>
               );
@@ -160,3 +160,4 @@ export const Philosophy: React.FC = () => {
     </section>
   );
 };
+

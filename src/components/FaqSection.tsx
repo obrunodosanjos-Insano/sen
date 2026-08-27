@@ -32,18 +32,18 @@ export const FaqSection: React.FC = () => {
   ];
 
   return (
-    <section id="faq" className="py-16 sm:py-24 bg-white">
+    <section id="faq" className="py-16 sm:py-24 bg-white dark:bg-slate-900 transition-colors">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-none bg-slate-100 border border-slate-200 text-slate-800 text-xs font-bold uppercase tracking-wider mb-3">
-            <HelpCircle className="w-3.5 h-3.5 text-slate-700" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-none bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 text-xs font-bold uppercase tracking-wider mb-3">
+            <HelpCircle className="w-3.5 h-3.5 text-slate-700 dark:text-slate-300" />
             <span>Perguntas Frequentes & Termos</span>
           </div>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-display">
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight font-display">
             Tudo o que você precisa saber
           </h2>
-          <p className="text-slate-600 text-base mt-2">
+          <p className="text-slate-600 dark:text-slate-300 text-base mt-2">
             Respostas diretas e os principais termos da cultura da robótica competitiva.
           </p>
         </div>
@@ -55,21 +55,21 @@ export const FaqSection: React.FC = () => {
             return (
               <div
                 key={idx}
-                className="rounded-none border border-slate-200/90 bg-white overflow-hidden transition-all"
+                className="rounded-none border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-800/90 overflow-hidden transition-all"
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : idx)}
-                  className="w-full py-4 px-5 text-left flex items-center justify-between gap-4 font-bold text-slate-900 hover:bg-slate-50/80 transition-colors text-sm sm:text-base"
+                  className="w-full py-4 px-5 text-left flex items-center justify-between gap-4 font-bold text-slate-900 dark:text-white hover:bg-slate-50/80 dark:hover:bg-slate-700/50 transition-colors text-sm sm:text-base"
                 >
                   <span>{faq.q}</span>
                   <ChevronDown
-                    className={`w-4 h-4 text-slate-500 transition-transform duration-200 flex-shrink-0 ${
-                      isOpen ? 'rotate-180 text-slate-900' : ''
+                    className={`w-4 h-4 text-slate-500 dark:text-slate-400 transition-transform duration-200 flex-shrink-0 ${
+                      isOpen ? 'rotate-180 text-slate-900 dark:text-white' : ''
                     }`}
                   />
                 </button>
                 {isOpen && (
-                  <div className="px-5 pb-5 pt-1 text-slate-600 text-sm leading-relaxed border-t border-slate-100 bg-slate-50/50">
+                  <div className="px-5 pb-5 pt-1 text-slate-600 dark:text-slate-300 text-sm leading-relaxed border-t border-slate-100 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/40">
                     {faq.a}
                   </div>
                 )}

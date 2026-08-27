@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -10,3 +12,4 @@
 .font-display {
   font-family: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
 }
+

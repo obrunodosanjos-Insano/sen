@@ -1,5 +1,6 @@
 import React from 'react';
 import { Layers, CheckCircle2 } from 'lucide-react';
+import { FrcLogo } from './FrcLogo';
 
 export const ComparisonTable: React.FC = () => {
   const rows = [
@@ -66,65 +67,71 @@ export const ComparisonTable: React.FC = () => {
   ];
 
   return (
-    <section id="comparativo" className="py-16 sm:py-24 border-b border-slate-200/80 bg-white">
+    <section id="comparativo" className="py-16 sm:py-24 border-b border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 transition-colors">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="max-w-2xl mb-10">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-none bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider mb-3 border border-slate-200">
-            <Layers className="w-3.5 h-3.5 text-slate-600" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-none bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 text-xs font-bold uppercase tracking-wider mb-3 border border-slate-200 dark:border-slate-700">
+            <Layers className="w-3.5 h-3.5 text-slate-600 dark:text-slate-400" />
             <span>Matriz Comparativa</span>
           </div>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-display">
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight font-display">
             Comparativo Direto entre as Modalidades
           </h2>
-          <p className="text-slate-600 text-base sm:text-lg mt-2">
+          <p className="text-slate-600 dark:text-slate-300 text-base sm:text-lg mt-2">
             Visão consolidada para comparar regras, materiais e requisitos de cada programa.
           </p>
         </div>
 
         {/* Table wrapper */}
-        <div className="overflow-hidden rounded-none border border-slate-200 shadow-xs bg-white">
+        <div className="overflow-hidden rounded-none border border-slate-200 dark:border-slate-700 shadow-xs bg-white dark:bg-slate-800/90">
           <div className="overflow-x-auto">
             <table className="w-full text-left text-sm">
               <thead>
-                <tr className="border-b border-slate-200 bg-slate-50 text-slate-900 font-display">
+                <tr className="border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-display">
                   <th className="py-4 px-5 font-bold w-1/4">Aspecto / Requisito</th>
-                  <th className="py-4 px-5 font-bold text-slate-900 w-1/4">
+                  <th className="py-4 px-5 font-bold text-slate-900 dark:text-white w-1/4">
                     <div className="flex items-center gap-1.5">
-                      <span className="w-2 h-2 rounded-none bg-slate-900 inline-block" />
+                      <span className="w-2 h-2 rounded-none bg-slate-900 dark:bg-white inline-block" />
                       <span>FLL Challenge</span>
                     </div>
                   </th>
-                  <th className="py-4 px-5 font-bold text-slate-900 w-1/4">
+                  <th className="py-4 px-5 font-bold text-slate-900 dark:text-white w-1/4">
                     <div className="flex items-center gap-1.5">
-                      <span className="w-2 h-2 rounded-none bg-slate-700 inline-block" />
+                      <span className="w-2 h-2 rounded-none bg-slate-700 dark:bg-slate-300 inline-block" />
                       <span>FTC</span>
                     </div>
                   </th>
-                  <th className="py-4 px-5 font-bold text-slate-900 w-1/4">
-                    <div className="flex items-center gap-1.5">
-                      <span className="w-2 h-2 rounded-none bg-slate-500 inline-block" />
+                  <th className="py-4 px-5 font-bold text-slate-900 dark:text-white w-1/4">
+                    <div className="flex items-center gap-2">
+                      <div className="h-4 w-5 flex items-center">
+                        <FrcLogo variant="emblem" className="h-full w-full" />
+                      </div>
                       <span>FRC</span>
                     </div>
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100 text-slate-700 bg-white">
+              <tbody className="divide-y divide-slate-100 dark:divide-slate-700/80 text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-850">
                 {rows.map((row, index) => (
                   <tr 
                     key={index}
-                    className={index % 2 === 0 ? 'bg-white hover:bg-slate-50/70' : 'bg-slate-50/40 hover:bg-slate-50/90'}
+                    className={
+                      index % 2 === 0 
+                        ? 'bg-white dark:bg-slate-800/40 hover:bg-slate-50/70 dark:hover:bg-slate-800/80' 
+                        : 'bg-slate-50/40 dark:bg-slate-800/70 hover:bg-slate-50/90 dark:hover:bg-slate-800'
+                    }
                   >
-                    <td className="py-3.5 px-5 font-semibold text-slate-900 text-xs sm:text-sm">
+                    <td className="py-3.5 px-5 font-semibold text-slate-900 dark:text-white text-xs sm:text-sm">
                       {row.label}
                     </td>
-                    <td className="py-3.5 px-5 text-xs sm:text-sm text-slate-600">
+                    <td className="py-3.5 px-5 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
                       {row.fll}
                     </td>
-                    <td className="py-3.5 px-5 text-xs sm:text-sm text-slate-600">
+                    <td className="py-3.5 px-5 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
                       {row.ftc}
                     </td>
-                    <td className="py-3.5 px-5 text-xs sm:text-sm text-slate-600">
+                    <td className="py-3.5 px-5 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
                       {row.frc}
                     </td>
                   </tr>
@@ -135,7 +142,7 @@ export const ComparisonTable: React.FC = () => {
         </div>
 
         {/* Note underneath table */}
-        <div className="mt-4 flex items-center justify-between text-xs text-slate-500 px-2">
+        <div className="mt-4 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 px-2">
           <span>* Todas as categorias são regidas pelos mesmos Core Values e espírito de Coopertition®.</span>
           <span className="hidden sm:inline">Atualizado conforme manuais oficiais da FIRST.</span>
         </div>
