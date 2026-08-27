@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowUpRight, ExternalLink, Globe } from 'lucide-react';
 import { FrcLogo } from './FrcLogo';
+import { SenaiLogo } from './SenaiLogo';
 
 export const Footer: React.FC = () => {
   return (
@@ -13,20 +14,23 @@ export const Footer: React.FC = () => {
               <div className="w-12 h-10 rounded-none bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 flex items-center justify-center p-1 shadow-xs">
                 <FrcLogo variant="emblem" className="w-full h-full" />
               </div>
-              <div>
-                <span className="font-extrabold text-slate-900 dark:text-white tracking-tight font-display text-base block">
-                  FIRST® Inspires
-                </span>
-                <span className="text-[11px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">
-                  Brasil
-                </span>
+              <div className="h-7 w-20 flex items-center shadow-xs border border-red-700/30 overflow-hidden">
+                <SenaiLogo className="w-full h-full" />
               </div>
+            </div>
+            <div>
+              <span className="font-extrabold text-slate-900 dark:text-white tracking-tight font-display text-base block">
+                FIRST® Inspires
+              </span>
+              <span className="text-[11px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">
+                Brasil & SENAI
+              </span>
             </div>
             <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
               Inspirando jovens a se tornarem líderes e inovadores em ciência e tecnologia através de programas de robótica baseados em mentoria.
             </p>
             <div className="text-xs text-slate-600 dark:text-slate-300">
-              Operação de torneios oficiais no Brasil por <strong>SESI Robótica</strong>.
+              Operação de torneios oficiais no Brasil por <strong>SESI e SENAI Robótica</strong>.
             </div>
           </div>
 

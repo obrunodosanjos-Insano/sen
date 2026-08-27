@@ -1,26 +1,39 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ArrowUpRight, Menu, X, Sun, Moon } from 'lucide-react';
 import { FrcLogo } from './FrcLogo';
+import { SenaiLogo } from './SenaiLogo';
 import { useTheme } from '../context/ThemeContext';
 
 export const Navbar: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Exibe a navbar quando o usuário rolar mais de 100px para baixo
-      if (window.scrollY > 100) {
+      const currentScrollY = window.scrollY;
+
+      // Se estiver no topo da página (<= 20px), sempre mostra a navbar
+      if (currentScrollY <= 20) {
         setIsVisible(true);
-      } else {
-        setIsVisible(false);
-        setIsMobileMenuOpen(false);
+        lastScrollY.current = currentScrollY;
+        return;
       }
+
+      // Se rolou para baixo, esconde a navbar
+      if (currentScrollY > lastScrollY.current && currentScrollY > 60) {
+        setIsVisible(false);
+        setIsMobileMenuOpen(false); // Fecha o menu mobile se estiver descendo
+      } else if (currentScrollY < lastScrollY.current) {
+        // Se rolou para cima (subindo novamente), reaparece
+        setIsVisible(true);
+      }
+
+      lastScrollY.current = currentScrollY;
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -29,27 +42,43 @@ export const Navbar: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-xs transition-all duration-300 transform ${
-        isVisible
-          ? 'translate-y-0 opacity-100'
-          : '-translate-y-full opacity-0 pointer-events-none'
+      className={`fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-xs transition-transform duration-300 ease-in-out ${
+        isVisible ? 'translate-y-0' : '-translate-y-full'
       }`}
     >
       {/* Main Clean Navigation Bar */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
-        {/* Brand Logo - Minimalist */}
-        <a href="#inicio" className="flex items-center gap-2.5 group">
-          <div className="w-10 h-8 rounded-none bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center p-1 shadow-xs group-hover:border-slate-400 dark:group-hover:border-slate-500 transition-colors">
-            <FrcLogo variant="emblem" className="w-full h-full" />
-          </div>
-          <div className="flex items-center gap-1.5">
-            <span className="font-extrabold text-slate-900 dark:text-white tracking-tight text-base font-display">FIRST®</span>
-            <span className="text-slate-500 dark:text-slate-400 font-medium text-xs">Brasil</span>
-          </div>
-        </a>
+        {/* Brand Logo Group - FIRST® & SENAI */}
+        <div className="flex items-center gap-2.5 sm:gap-3">
+          <a href="#inicio" className="flex items-center gap-2 group">
+            <div className="w-9 h-7 sm:w-10 sm:h-8 rounded-none bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center p-1 shadow-xs group-hover:border-slate-400 dark:group-hover:border-slate-500 transition-colors">
+              <FrcLogo variant="emblem" className="w-full h-full" />
+            </div>
+            <div className="flex items-center gap-1">
+              <span className="font-extrabold text-slate-900 dark:text-white tracking-tight text-sm sm:text-base font-display">FIRST®</span>
+              <span className="text-slate-500 dark:text-slate-400 font-medium text-[11px] sm:text-xs hidden min-[420px]:inline">Brasil</span>
+            </div>
+          </a>
+
+          {/* Elegant Divider */}
+          <div className="h-4 sm:h-5 w-px bg-slate-200 dark:bg-slate-700" />
+
+          {/* SENAI Logo next to FIRST */}
+          <a
+            href="https://www.portaldaindustria.com.br/senai/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="SENAI - Serviço Nacional de Aprendizagem Industrial"
+            className="flex items-center hover:opacity-90 transition-opacity"
+          >
+            <div className="h-6 sm:h-7 w-20 sm:w-24 flex items-center overflow-hidden shadow-xs border border-red-700/30">
+              <SenaiLogo className="h-full w-full" />
+            </div>
+          </a>
+        </div>
 
         {/* Desktop Links - Streamlined and balanced */}
-        <nav className="hidden md:flex items-center gap-6 text-xs font-semibold text-slate-600 dark:text-slate-300">
+        <nav className="hidden lg:flex items-center gap-5 xl:gap-6 text-xs font-semibold text-slate-600 dark:text-slate-300">
           <a
             href="#programas"
             className="hover:text-slate-900 dark:hover:text-white transition-colors py-1"
@@ -115,16 +144,16 @@ export const Navbar: React.FC = () => {
             href="http://portaldaindustria.com.br/sesi/canais/torneio-de-robotica/"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold px-3.5 py-1.5 rounded-none bg-slate-900 hover:bg-black dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-900 transition-all shadow-xs"
+            className="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-none bg-slate-900 hover:bg-black dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-900 transition-all shadow-xs"
           >
-            <span>SESI Robótica</span>
+            <span>SESI / SENAI</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
 
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="p-1.5 rounded-none text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 md:hidden"
+            className="p-1.5 rounded-none text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 lg:hidden"
             aria-label="Menu de Navegação"
           >
             {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -134,7 +163,7 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Menu Dropdown - Clean & Simple */}
       {isMobileMenuOpen && (
-        <div className="md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 py-3 space-y-2 text-sm font-medium text-slate-700 dark:text-slate-300 shadow-md">
+        <div className="lg:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 py-3 space-y-2 text-sm font-medium text-slate-700 dark:text-slate-300 shadow-md">
           <a
             href="#programas"
             onClick={() => setIsMobileMenuOpen(false)}
@@ -206,7 +235,7 @@ export const Navbar: React.FC = () => {
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-1.5 w-full py-2 rounded-none bg-slate-900 hover:bg-black dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-900 text-xs font-bold"
             >
-              <span>Portal SESI Robótica</span>
+              <span>Portal SESI / SENAI Robótica</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
           </div>
